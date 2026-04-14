@@ -36,7 +36,7 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
 
   return (
     <aside className={asideClass} aria-label="Main navigation">
-      <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 translate-x-1/4 -translate-y-1/4 rounded-full bg-emerald-200/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-0 h-60 w-40 translate-x-1/4 -translate-y-1/4 rounded-full bg-emerald-200/10 blur-3xl" />
       <div className="pointer-events-none absolute bottom-20 left-0 h-32 w-32 -translate-x-1/3 rounded-full bg-amber-200/10 blur-2xl" />
 
       <div className="relative flex h-full min-h-0 flex-col px-3 pb-4 pt-5">
@@ -93,14 +93,6 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
             onNavigate={onCloseMobile}
           />
           <SidebarNavItem
-            href="/app/logs"
-            active={isActive('/app/logs')}
-            icon={<IconLogs />}
-            label="Daily Logs"
-            collapsed={collapsed}
-            onNavigate={onCloseMobile}
-          />
-          <SidebarNavItem
             href="/app/food-checker"
             active={isActive('/app/food-checker')}
             icon={<IconFork />}
@@ -108,7 +100,14 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
             collapsed={collapsed}
             onNavigate={onCloseMobile}
           />
-
+          <SidebarNavItem
+            href="/app/logs"
+            active={isActive('/app/logs')}
+            icon={<IconLogs />}
+            label="Daily Logs"
+            collapsed={collapsed}
+            onNavigate={onCloseMobile}
+          />
           <p
             className={`mb-2 mt-6 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400/90 ${collapsed ? 'md:hidden' : ''}`}
           >
@@ -123,10 +122,10 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
             onNavigate={onCloseMobile}
           />
           <SidebarNavItem
-            href="/app/food"
-            active={isActive('/app/food')}
+            href="/app/meals"
+            active={isActive('/app/meals')}
             icon={<IconBowl />}
-            label="Food & Digestion"
+            label="Meal Planner"
             collapsed={collapsed}
             onNavigate={onCloseMobile}
           />
@@ -145,6 +144,22 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
             collapsed={collapsed}
             badge={!collapsed ? soonBadge : null}
           />
+          <SidebarNavItem
+            href="/app/learn"
+            active={isActive('/app/learn')}
+            icon={<IconFork />}
+            label="Learn"
+            collapsed={collapsed}
+            onNavigate={onCloseMobile}
+          />
+          <SidebarNavItem
+            href="/app/chat"
+            active={isActive('/app/chat')}
+            icon={<IconChevronRight />}
+            label="AI guidance"
+            collapsed={collapsed}
+            onNavigate={onCloseMobile}
+          />
         </nav>
 
         <div
@@ -153,7 +168,7 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
           {!collapsed && (
             <p className="mb-2 px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-400/90">More</p>
           )}
-          <Link
+          {/* <Link
             href="/app/recipes"
             onClick={onCloseMobile}
             className={`block rounded-xl px-3 py-2 text-sm text-stone-600 transition hover:bg-white/65 hover:text-stone-900 hover:shadow-sm ${collapsed ? 'md:hidden' : ''}`}
@@ -173,14 +188,7 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
             className={`block rounded-xl px-3 py-2 text-sm text-stone-600 transition hover:bg-white/65 hover:text-stone-900 hover:shadow-sm ${collapsed ? 'md:hidden' : ''}`}
           >
             AI guidance
-          </Link>
-          <Link
-            href="/app/learn"
-            onClick={onCloseMobile}
-            className={`block rounded-xl px-3 py-2 text-sm text-stone-600 transition hover:bg-white/65 hover:text-stone-900 hover:shadow-sm ${collapsed ? 'md:hidden' : ''}`}
-          >
-            Learn
-          </Link>
+          </Link> */}
           <Link
             href="/app/profile"
             onClick={onCloseMobile}
@@ -188,6 +196,21 @@ export default function Sidebar({ collapsed, onToggleCollapse, mobileOpen, onClo
           >
             Profile
           </Link>
+          <Link
+            href="/app/settings"
+            onClick={onCloseMobile}
+            className={`block rounded-xl px-3 py-2 text-sm text-stone-600 transition hover:bg-white/65 hover:text-stone-900 hover:shadow-sm ${collapsed ? 'md:hidden' : ''}`}
+          >
+            Settings
+          </Link>
+          <Link
+            href="/app/settings"
+            onClick={onCloseMobile}
+            className={`block rounded-xl px-3 py-2 text-sm text-stone-600 transition hover:bg-white/65 hover:text-stone-900 hover:shadow-sm ${collapsed ? 'md:hidden' : ''}`}
+          >
+            Log Out
+          </Link>
+          
         </div>
       </div>
     </aside>

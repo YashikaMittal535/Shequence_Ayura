@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Sidebar from './Sidebar';
-import TopBar from './TopBar';
+// import TopBar from './TopBar';
 
 const NO_SHELL_PATHS = ['/app/quiz', '/app/profile/create', '/app/results'];
 
@@ -49,11 +49,12 @@ export default function AyuraAppShell({ children }) {
   const pageTitle = useMemo(() => {
     if (pathname.startsWith('/app/dashboard')) return 'Dashboard';
     if (pathname.startsWith('/app/pantry')) return 'Pantry Generator';
-    if (pathname.startsWith('/app/logs')) return 'Daily Logs';
     if (pathname.startsWith('/app/food-checker')) return 'Food Combinations';
+    if (pathname.startsWith('/app/logs')) return 'Daily Logs';
     if (pathname.startsWith('/app/lifestyle')) return 'Lifestyle & Mind';
     if (pathname.startsWith('/app/food')) return 'Food & Digestion';
     if (pathname.startsWith('/app/seasons')) return 'Seasons';
+    if (pathname.startsWith('/app/habits')) return 'Habits';
     if (pathname.startsWith('/app/meals')) return 'Meal planner';
     if (pathname.startsWith('/app/recipes')) return 'Recipes';
     if (pathname.startsWith('/app/chat')) return 'AI guidance';
@@ -85,7 +86,7 @@ export default function AyuraAppShell({ children }) {
       />
 
       <div className="flex min-w-0 flex-1 flex-col md:pl-0">
-        <TopBar onMenuClick={() => setMobileOpen(true)} title={pageTitle} />
+        {/* <TopBar onMenuClick={() => setMobileOpen(true)} title={pageTitle} /> */}
         <main className="flex-1">{children}</main>
       </div>
     </div>
